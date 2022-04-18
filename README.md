@@ -17,7 +17,3 @@ To build a car rental system which will allow the users to rent vehicles for a u
 
 4. Allow the option of users choosing to rent only the car or the car with a driver( the available driver will automatically be allotted to the user)
 
-
-# E-R DIAGRAM
-
-# METHODOLOGY
