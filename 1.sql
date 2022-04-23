@@ -53,35 +53,47 @@ insert into locations values('Maharashtra', 'Nashik');
 
 insert into locations values('Maharashtra', 'Panvel');
 
-create table SERVICE_PROVIDER( 
-GSTIN varchar(25) , 
-Name varchar(100), 
+create table SERVICE_PROVIDERS_INDEX(
+  
+  GSTIN varchar(25) PRIMARY KEY,
+  Name Varchar2(25) 
+)
+
+INSERT INTO SERVICE_PROVIDERS_INDEX VALUES ('29GSLG1314R9Z6','Shammi Services');
+INSERT INTO SERVICE_PROVIDERS_INDEX VALUES ('7BNWLG5214R9B2', 'Khanna car  Services');
+INSERT INTO SERVICE_PROVIDERS_INDEX VALUES ('3KLASLX4567F3', 'Deep Car  Services');
+INSERT INTO SERVICE_PROVIDERS_INDEX VALUES ('8BBPLSLW9637R8','Gaitonde Services');
+INSERT INTO SERVICE_PROVIDERS_INDEX VALUES ('6ASDFSLV3697H8', 'Shinde CarServices');
+
+create table SERVICE_PROVIDERS( 
+GSTIN varchar2(25) REFERENCES SERVICE_PROVIDERS_INDEX(GSTIN), 
+Name varchar2(100);
 ratings float(5), 
-location varchar(25), 
+location varchar2(25) NOT NULL,
 foreign key(location) references locations(city) on delete cascade 
 );
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4,'Amritsar');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4,'Amritsar');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4,'Bathinda');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',  4,'Bathinda');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4,'Patiala');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4,'Patiala');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4,'Sangrur');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4,'Sangrur');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.2,'Panipat');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4.2,'Panipat');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.2,'Sonipat');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',  4.2,'Sonipat');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.2,'Ambala');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4.2,'Ambala');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.1,'Udaipur');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4.1,'Udaipur');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.1,'Bikaner');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4.1,'Bikaner');
 
-insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services',4.1,'Varanasi');
+insert into SERVICE_PROVIDER values('29GSLG1314R9Z6', 'Shammi Services', 4.1,'Varanasi');
 
-insert into SERVICE_PROVIDER values('7BNWLG5214R9B2', ' Khanna car  Services',3.9,'Amritsar');
+insert into SERVICE_PROVIDER values('7BNWLG5214R9B2', 'Khanna car  Services',3.9,'Amritsar');
 
 insert into SERVICE_PROVIDER values('7BNWLG5214R9B2', 'Khanna car  Services',3.9,'Bathinda');
 
