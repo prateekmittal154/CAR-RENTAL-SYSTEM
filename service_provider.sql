@@ -1,4 +1,4 @@
-
+ 
 use CAR_RENTAL;
 create table locations(
 STATE varchar(15) ,
