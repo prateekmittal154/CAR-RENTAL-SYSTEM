@@ -27,6 +27,7 @@ foreign key (GSTIN) references SERVICE_PROVIDER(GSTIN) ON DELETE cascade);
 INSERT INTO states values(1,"29GSLG1314R9Z6","Punjab");
 INSERT INTO states values(2,"29GSLG1314R9Z6","Haryana");
 INSERT INTO states values(3,"29GSLG1314R9Z6","Maharashtra");  
+
 INSERT INTO states values(4,"7BNWLG5214R9B2", "Rajasthan");
 INSERT INTO states values(5,"7BNWLG5214R9B2", "Haryana");
 INSERT INTO states values(6,"7BNWLG5214R9B2", "Maharashtra");
