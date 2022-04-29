@@ -125,7 +125,7 @@ insert into CAR_DETAILS
 VALUES("HR01FK3232","HUNDAYI","Shammi Services","SUV","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("HR14JD0932","MARUTI SUZUKI","Shammi Services","MINI","UNBKD");
+VALUES("HR10JD0932","MARUTI SUZUKI","Shammi Services","MINI","UNBKD");
 insert into CAR_DETAILS 
 VALUES("DL23JD0452","HONDA","Shammi Services","SUV","UNBKD");
 insert into CAR_DETAILS 
@@ -138,7 +138,7 @@ VALUES("DL04FH3242","MARUTI SUZUKI","Shammi Services","SUV","UNBKD");
 insert into CAR_DETAILS 
 VALUES("HR23JD0452","HONDA","Shammi Services","MINI","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL02HF0923","FORD","Shammi Services","Hatchback","UNBKD");
+VALUES("DL02HX0923","FORD","Shammi Services","Hatchback","UNBKD");
 insert into CAR_DETAILS 
 VALUES("MH11HF2344","HUNDAYI","Shammi Services","Sedan","UNBKD");
 
@@ -335,6 +335,7 @@ INSERT INTO Drivers Values (765, 'Ganesh', '1993-01-07', 3, 'Khanna Services');
 INSERT INTO Drivers Values (766, 'Purushottam', '1987-03-06', 2, 'Gaitonde Services');
 INSERT INTO Drivers Values (767, 'Danish', '1992-12-06', 4, 'Deep Car Services');
 INSERT INTO Drivers Values (769, 'Manish', '1998-12-07', 3.5, 'Deep Car Services');
+
 
 
 
