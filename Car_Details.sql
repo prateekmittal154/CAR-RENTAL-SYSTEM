@@ -37,7 +37,7 @@ insert into CAR_DETAILS
 VALUES("HR01FK3232","HUNDAYI","Shammi Services","SUV","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("HR14JD0932","MARUTI SUZUKI","Shammi Services","MINI","UNBKD");
+VALUES("HR10JD0932","MARUTI SUZUKI","Shammi Services","MINI","UNBKD");
 insert into CAR_DETAILS 
 VALUES("DL23JD0452","HONDA","Shammi Services","SUV","UNBKD");
 insert into CAR_DETAILS 
@@ -50,7 +50,7 @@ VALUES("DL04FH3242","MARUTI SUZUKI","Shammi Services","SUV","UNBKD");
 insert into CAR_DETAILS 
 VALUES("HR23JD0452","HONDA","Shammi Services","MINI","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL02HF0923","FORD","Shammi Services","Hatchback","UNBKD");
+VALUES("DL02HX0923","FORD","Shammi Services","Hatchback","UNBKD");
 insert into CAR_DETAILS 
 VALUES("MH11HF2344","HUNDAYI","Shammi Services","Sedan","UNBKD");
 
@@ -204,4 +204,5 @@ insert into CAR_DETAILS
 VALUES("DL08FR5643","FORD","Shinde CarServices","Hatchback","UNBKD");
 insert into CAR_DETAILS 
 VALUES("UP34JD3489","HUNDAYI","Shinde CarServices","Sedan","UNBKD");
+
 
