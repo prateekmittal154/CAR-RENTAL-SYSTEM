@@ -20,8 +20,8 @@ insert into SERVICE_PROVIDER values("6ASDFSLV3697H8", "Shinde CarServices",3.9);
 
 create table states(
 SNO int primary key,
-GSTIN varchar(25),
-state varchar(15),
+GSTIN varchar(25) ,
+stat  varchar(15),
 foreign key (GSTIN) references SERVICE_PROVIDER(GSTIN) ON DELETE cascade);
 
 INSERT INTO states values(1,"29GSLG1314R9Z6","Punjab");
@@ -42,10 +42,10 @@ INSERT INTO states values(12,"8BBPLSLW9637R8", "Haryana");
 
 INSERT INTO states values(13,"6ASDFSLV3697H8",  "Uttar Pradesh");
 INSERT INTO states values(15,"6ASDFSLV3697H8",  "Punjab");
-INSERT INTO states values(14,"6ASDFSLV3697H8",  "Rajastan");
+INSERT INTO states values(14,"6ASDFSLV3697H8",  "Rajasthan");
 
 create table locations(
-STATE varchar(15) ,
+STATE varchar(15) references states(stat) ,
 CITY varchar(15) primary key);
 
 insert into locations values("Punjab", "Amritsar");
@@ -79,11 +79,6 @@ insert into locations values("Maharashtra", "Nashik");
 insert into locations values("Maharashtra", "Panvel");
 
 
-select * from states
-join locations
-on
-states.state=locations.state;
-
 CREATE TABLE CAR_TYPES(
 
 TYPE_ID int PRIMARY KEY,
@@ -102,196 +97,196 @@ CREATE TABLE CAR_DETAILS(
 REG_NO Varchar(100) PRIMARY KEY,
 MANUFACTURER_NAME_MDL VARCHAR(100),
 COMPANY_NAME varchar(100) REFERENCES  SERVICE_PROVIDER(Company_Name) ON DELETE CASCADE,
-CAR_TYPE varchar(100) REFERENCES CAR_TYPES(TYPE_ID),
+CAR_TYPE int(100) REFERENCES CAR_TYPES(TYPE_ID),
 CURRENT_STATUS VARCHAR(30) CHECK (CURRENT_STATUS IN('BKD','UNBKD'))  DEFAULT 'UNBKD'
 );
 
 insert into CAR_DETAILS 
-VALUES("PB14JD0932","MARUTI SUZUKI","Shammi Services","Hatchback","UNBKD");
+VALUES("PB14JD0932","MARUTI SUZUKI","Shammi Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH23JD0452","HONDA","Shammi Services","Sedan","UNBKD");
+VALUES("MH23JD0452","HONDA","Shammi Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL02HF0923","FORD","Shammi Services","SUV","UNBKD");
+VALUES("DL02HF0923","FORD","Shammi Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("HR11HF2344","HUNDAYI","Shammi Services","MINI","UNBKD");
+VALUES("HR11HF2344","HUNDAYI","Shammi Services","2","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("MH14JD0932","MARUTI SUZUKI","Shammi Services","Sedan","UNBKD");
+VALUES("MH14JD0932","MARUTI SUZUKI","Shammi Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("PB23JD0452","HONDA","Shammi Services","Hatchback","UNBKD");
+VALUES("PB23JD0452","HONDA","Shammi Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH11EF6473","FORD","Shammi Services","MINI","UNBKD");
+VALUES("MH11EF6473","FORD","Shammi Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("HR01FK3232","HUNDAYI","Shammi Services","SUV","UNBKD");
+VALUES("HR01FK3232","HUNDAYI","Shammi Services","4","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("HR10JD0932","MARUTI SUZUKI","Shammi Services","MINI","UNBKD");
+VALUES("HR10JD0932","MARUTI SUZUKI","Shammi Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL23JD0452","HONDA","Shammi Services","SUV","UNBKD");
+VALUES("DL23JD0452","HONDA","Shammi Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH02HF0923","FORD","Shammi Services","Sedan","UNBKD");
+VALUES("MH02HF0923","FORD","Shammi Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("PB11HF2344","HUNDAYI","Shammi Services","Hatchback","UNBKD");
+VALUES("PB11HF2344","HUNDAYI","Shammi Services","1","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("DL04FH3242","MARUTI SUZUKI","Shammi Services","SUV","UNBKD");
+VALUES("DL04FH3242","MARUTI SUZUKI","Shammi Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("HR23JD0452","HONDA","Shammi Services","MINI","UNBKD");
+VALUES("HR23JD0452","HONDA","Shammi Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL02HX0923","FORD","Shammi Services","Hatchback","UNBKD");
+VALUES("DL02HX0923","FORD","Shammi Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH11HF2344","HUNDAYI","Shammi Services","Sedan","UNBKD");
-
-
-insert into CAR_DETAILS 
-VALUES("MH21FN8429","MARUTI SUZUKI","Khanna car  Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR01HF0823","HONDA","Khanna car  Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL12JA7532","FORD","Khanna car  Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("RJ14JD0932","HUNDAYI","Khanna car  Services","MINI","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("HR21FN8429","MARUTI SUZUKI","Khanna car  Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH01HF0823","HONDA","Khanna car  Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("RJ12JA7532","FORD","Khanna car  Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL14JD0932","HUNDAYI","Khanna car  Services","Hatchback","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("RJ21FN8429","MARUTI SUZUKI","Khanna car  Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL01HF0823","HONDA","Khanna car  Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH12JA7532","FORD","Khanna car  Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR14JD0932","HUNDAYI","Khanna car  Services","SUV","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("RJ02RI8429","MARUTI SUZUKI","Khanna car  Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL03OF0823","HONDA","Khanna car  Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH15JF7532","FORD","Khanna car  Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR03OY0932","HUNDAYI","Khanna car  Services","Sedan","UNBKD");
-
-
+VALUES("MH11HF2344","HUNDAYI","Shammi Services","3","UNBKD");
 
 
 insert into CAR_DETAILS 
-VALUES("MH10HF7432","MARUTI SUZUKI","Deep Car Services","Hatchback","UNBKD");
+VALUES("MH21FN8429","MARUTI SUZUKI","Khanna car  Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL03NK3492","HONDA","Deep Car Services","Sedan","UNBKD");
+VALUES("HR01HF0823","HONDA","Khanna car  Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP04YW7324","FORD","Deep Car Services","SUV","UNBKD");
+VALUES("DL12JA7532","FORD","Khanna car  Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ13HF9342","HUNDAYI","Deep Car Services","MINI","UNBKD");
+VALUES("RJ14JD0932","HUNDAYI","Khanna car  Services","2","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("RJ10HF7432","MARUTI SUZUKI","Deep Car Services","Sedan","UNBKD");
+VALUES("HR21FN8429","MARUTI SUZUKI","Khanna car  Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP03NK3492","HONDA","Deep Car Services","Hatchback","UNBKD");
+VALUES("MH01HF0823","HONDA","Khanna car  Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL04YW7324","FORD","Deep Car Services","MINI","UNBKD");
+VALUES("RJ12JA7532","FORD","Khanna car  Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH13HF9342","HUNDAYI","Deep Car Services","SUV","UNBKD");
+VALUES("DL14JD0932","HUNDAYI","Khanna car  Services","1","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("DL10HF7432","MARUTI SUZUKI","Deep Car Services","MINI","UNBKD");
+VALUES("RJ21FN8429","MARUTI SUZUKI","Khanna car  Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH03NK3492","HONDA","Deep Car Services","SUV","UNBKD");
+VALUES("DL01HF0823","HONDA","Khanna car  Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ04YW7324","FORD","Deep Car Services","Sedan","UNBKD");
+VALUES("MH12JA7532","FORD","Khanna car  Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP13HF9342","HUNDAYI","Deep Car Services","Hatchback","UNBKD");
+VALUES("HR14JD0932","HUNDAYI","Khanna car  Services","4","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("UP10HF7432","MARUTI SUZUKI","Deep Car Services","SUV","UNBKD");
+VALUES("RJ02RI8429","MARUTI SUZUKI","Khanna car  Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ03NK3492","HONDA","Deep Car Services","MINI","UNBKD");
+VALUES("DL03OF0823","HONDA","Khanna car  Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("MH04YW7324","FORD","Deep Car Services","Hatchback","UNBKD");
+VALUES("MH15JF7532","FORD","Khanna car  Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL13HF9342","HUNDAYI","Deep Car Services","Sedan","UNBKD");
+VALUES("HR03OY0932","HUNDAYI","Khanna car  Services","3","UNBKD");
 
-
-insert into CAR_DETAILS 
-VALUES("MH02KD2348","MARUTI SUZUKI","Gaitonde Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR03SD3422","HONDA","Gaitonde Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("PB11RE2345","FORD","Gaitonde Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL01ER2342","HUNDAYI","Gaitonde Services","MINI","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("DL02KD2348","MARUTI SUZUKI","Gaitonde Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("PB03SD3422","HONDA","Gaitonde Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR11RE2345","FORD","Gaitonde Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH01ER2342","HUNDAYI","Gaitonde Services","SUV","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("HR02KD2348","MARUTI SUZUKI","Gaitonde Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH03SD3422","HONDA","Gaitonde Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL11RE2345","FORD","Gaitonde Services","Sedan","UNBKD");
-insert into CAR_DETAILS 
-VALUES("PB01ER2342","HUNDAYI","Gaitonde Services","Hatchback","UNBKD");
-
-insert into CAR_DETAILS 
-VALUES("PB02KD2348","MARUTI SUZUKI","Gaitonde Services","SUV","UNBKD");
-insert into CAR_DETAILS 
-VALUES("DL03SD3422","HONDA","Gaitonde Services","MINI","UNBKD");
-insert into CAR_DETAILS 
-VALUES("MH11RE2345","FORD","Gaitonde Services","Hatchback","UNBKD");
-insert into CAR_DETAILS 
-VALUES("HR01ER2342","HUNDAYI","Gaitonde Services","Sedan","UNBKD");
 
 
 
 insert into CAR_DETAILS 
-VALUES("DL13FU3420","MARUTI SUZUKI","Shinde CarServices","Hatchback","UNBKD");
+VALUES("MH10HF7432","MARUTI SUZUKI","Deep Car Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP22FN3914","HONDA","Shinde CarServices","Sedan","UNBKD");
+VALUES("DL03NK3492","HONDA","Deep Car Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("PB08FR5643","FORD","Shinde CarServices","SUV","UNBKD");
+VALUES("UP04YW7324","FORD","Deep Car Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ34JD3489","HUNDAYI","Shinde CarServices","MINI","UNBKD");
+VALUES("RJ13HF9342","HUNDAYI","Deep Car Services","2","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("RJ13FU3420","MARUTI SUZUKI","Shinde CarServices","Sedan","UNBKD");
+VALUES("RJ10HF7432","MARUTI SUZUKI","Deep Car Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("PB22FN3914","HONDA","Shinde CarServices","Hatchback","UNBKD");
+VALUES("UP03NK3492","HONDA","Deep Car Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP08FR5643","FORD","Shinde CarServices","MINI","UNBKD");
+VALUES("DL04YW7324","FORD","Deep Car Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL34JD3489","HUNDAYI","Shinde CarServices","SUV","UNBKD");
+VALUES("MH13HF9342","HUNDAYI","Deep Car Services","4","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("UP13FU3420","MARUTI SUZUKI","Shinde CarServices","MINI","UNBKD");
+VALUES("DL10HF7432","MARUTI SUZUKI","Deep Car Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL22FN3914","HONDA","Shinde CarServices","SUV","UNBKD");
+VALUES("MH03NK3492","HONDA","Deep Car Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ08FR5643","FORD","Shinde CarServices","Sedan","UNBKD");
+VALUES("RJ04YW7324","FORD","Deep Car Services","3","UNBKD");
 insert into CAR_DETAILS 
-VALUES("PB34JD3489","HUNDAYI","Shinde CarServices","Hatchback","UNBKD");
+VALUES("UP13HF9342","HUNDAYI","Deep Car Services","1","UNBKD");
 
 insert into CAR_DETAILS 
-VALUES("PB13FU3420","MARUTI SUZUKI","Shinde CarServices","SUV","UNBKD");
+VALUES("UP10HF7432","MARUTI SUZUKI","Deep Car Services","4","UNBKD");
 insert into CAR_DETAILS 
-VALUES("RJ22FN3914","HONDA","Shinde CarServices","MINI","UNBKD");
+VALUES("RJ03NK3492","HONDA","Deep Car Services","2","UNBKD");
 insert into CAR_DETAILS 
-VALUES("DL08FR5643","FORD","Shinde CarServices","Hatchback","UNBKD");
+VALUES("MH04YW7324","FORD","Deep Car Services","1","UNBKD");
 insert into CAR_DETAILS 
-VALUES("UP34JD3489","HUNDAYI","Shinde CarServices","Sedan","UNBKD");
+VALUES("DL13HF9342","HUNDAYI","Deep Car Services","3","UNBKD");
+
+
+insert into CAR_DETAILS 
+VALUES("MH02KD2348","MARUTI SUZUKI","Gaitonde Services","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("HR03SD3422","HONDA","Gaitonde Services","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB11RE2345","FORD","Gaitonde Services","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL01ER2342","HUNDAYI","Gaitonde Services","2","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("DL02KD2348","MARUTI SUZUKI","Gaitonde Services","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB03SD3422","HONDA","Gaitonde Services","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("HR11RE2345","FORD","Gaitonde Services","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("MH01ER2342","HUNDAYI","Gaitonde Services","4","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("HR02KD2348","MARUTI SUZUKI","Gaitonde Services","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("MH03SD3422","HONDA","Gaitonde Services","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL11RE2345","FORD","Gaitonde Services","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB01ER2342","HUNDAYI","Gaitonde Services","1","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("PB02KD2348","MARUTI SUZUKI","Gaitonde Services","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL03SD3422","HONDA","Gaitonde Services","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("MH11RE2345","FORD","Gaitonde Services","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("HR01ER2342","HUNDAYI","Gaitonde Services","3","UNBKD");
+
+
+
+insert into CAR_DETAILS 
+VALUES("DL13FU3420","MARUTI SUZUKI","Shinde CarServices","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("UP22FN3914","HONDA","Shinde CarServices","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB08FR5643","FORD","Shinde CarServices","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("RJ34JD3489","HUNDAYI","Shinde CarServices","2","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("RJ13FU3420","MARUTI SUZUKI","Shinde CarServices","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB22FN3914","HONDA","Shinde CarServices","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("UP08FR5643","FORD","Shinde CarServices","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL34JD3489","HUNDAYI","Shinde CarServices","4","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("UP13FU3420","MARUTI SUZUKI","Shinde CarServices","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL22FN3914","HONDA","Shinde CarServices","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("RJ08FR5643","FORD","Shinde CarServices","3","UNBKD");
+insert into CAR_DETAILS 
+VALUES("PB34JD3489","HUNDAYI","Shinde CarServices","1","UNBKD");
+
+insert into CAR_DETAILS 
+VALUES("PB13FU3420","MARUTI SUZUKI","Shinde CarServices","4","UNBKD");
+insert into CAR_DETAILS 
+VALUES("RJ22FN3914","HONDA","Shinde CarServices","2","UNBKD");
+insert into CAR_DETAILS 
+VALUES("DL08FR5643","FORD","Shinde CarServices","1","UNBKD");
+insert into CAR_DETAILS 
+VALUES("UP34JD3489","HUNDAYI","Shinde CarServices","3","UNBKD");
 
 
 
@@ -335,12 +330,6 @@ INSERT INTO Drivers Values (765, 'Ganesh', '1993-01-07', 3, 'Khanna Services');
 INSERT INTO Drivers Values (766, 'Purushottam', '1987-03-06', 2, 'Gaitonde Services');
 INSERT INTO Drivers Values (767, 'Danish', '1992-12-06', 4, 'Deep Car Services');
 INSERT INTO Drivers Values (769, 'Manish', '1998-12-07', 3.5, 'Deep Car Services');
-
-
-
-
-use car_rental;
-select * from Drivers;
 
 
 
