@@ -2,8 +2,10 @@
 create database car_rental;
 use car_rental;
 create table SERVICE_PROVIDER(
-GSTIN varchar(25) primary key ,
+GSTIN varchar(25)  ,
+ 
 Company_Name varchar(20),
+ primary key(GSTIN,Company_Name),
 ratings float(5)
 
 );
