@@ -335,3 +335,19 @@ INSERT INTO Drivers Values (769, 'Manish', '1998-12-07', 3.5, 'Deep Car Services
 
 
 
+declare 
+start_date date;
+end_date date;
+exp1 exception;
+
+begin
+
+if start_date>end_date then
+raise exp1;
+end if;
+
+exception 
+when exp1 then 
+dbms_output.put_line('Invalid date range');
+end;
+
