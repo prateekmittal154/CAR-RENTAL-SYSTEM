@@ -9,5 +9,6 @@ created_date timestamp);
 
 create table useridpss( 
 passwd_id number primary key  NOT NULL, 
-user_id varchar2(100) references userinfo(user_id), 
+user_id varchar2(100),
+foreign key(user_id) references userinfo(user_id), 
 user_passwd varchar2 (30) unique);
