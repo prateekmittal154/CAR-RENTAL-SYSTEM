@@ -69,6 +69,7 @@ create table SERVICE_PROVIDERS(
 GSTIN varchar2(25) REFERENCES SERVICE_PROVIDERS_INDEX(GSTIN), 
 Name varchar2(100);
 ratings float(5), 
+state varchar(20),
 location varchar2(25) NOT NULL,
 foreign key(location) references locations(city) on delete cascade 
 );
